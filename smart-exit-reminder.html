@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Exit Reminder - Product Showcase | Mourya Dusi</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #0071e3;
+  --primary-dark: #0051a8;
+  --accent: #00d4aa;
+  --bg: #ffffff;
+  --bg-alt: #fafafa;
+  --surface: #f5f5f7;
+  --text: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --border: #d2d2d7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-back {
+  padding: 8px 20px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-back:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Hero */
+.hero {
+  padding: 120px 24px 80px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: clamp(18px, 2.5vw, 24px);
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-weight: 400;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-top: 48px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 48px;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section */
+.section {
+  padding: 80px 24px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.section-description {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Problem/Solution */
+.problem-solution {
+  background: var(--bg-alt);
+}
+
+.ps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ps-card {
+  padding: 48px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.ps-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.ps-card.solution .ps-icon {
+  background: linear-gradient(135deg, #00d4aa, #00a896);
+}
+
+.ps-card h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.ps-card p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.ps-card ul {
+  margin-top: 24px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.ps-card li {
+  padding: 12px 0;
+  padding-left: 32px;
+  position: relative;
+  color: var(--text-secondary);
+}
+
+.ps-card li:before {
+  content: "×";
+  position: absolute;
+  left: 0;
+  color: #ff3b30;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.ps-card.solution li:before {
+  content: "✓";
+  color: var(--accent);
+}
+
+/* Features */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  padding: 40px 32px;
+  background: var(--surface);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 40px rgba(0, 113, 227, 0.15);
+}
+
+.feature-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* Technical Approaches */
+.approaches {
+  background: var(--bg-alt);
+}
+
+.approach-grid {
+  display: grid;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.approach-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.approach-card:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.approach-header {
+  padding: 32px;
+  background: linear-gradient(135deg, var(--primary), #00d4aa);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.approach-badge {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.approach-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.approach-header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.approach-body {
+  padding: 32px;
+}
+
+.pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.pro-con-list h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pro-con-list.pros h4 {
+  color: #34c759;
+}
+
+.pro-con-list.cons h4 {
+  color: #ff3b30;
+}
+
+.pro-con-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pro-con-list li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.pro-con-list.pros li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #34c759;
+  font-weight: 700;
+}
+
+.pro-con-list.cons li:before {
+  content: "×";
+  position: absolute;
+  left: 0;
+  color: #ff3b30;
+  font-weight: 700;
+}
+
+.recommended-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #34c759;
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 16px;
+}
+
+/* Architecture */
+.architecture-diagram {
+  max-width: 900px;
+  margin: 48px auto;
+  padding: 48px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.arch-layer {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 2px dashed var(--border);
+}
+
+.arch-layer:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.arch-layer h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+.arch-boxes {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.arch-box {
+  flex: 1;
+  min-width: 140px;
+  padding: 20px;
+  background: var(--surface);
+  border-radius: 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.arch-box:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Tech Stack */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tech-badge {
+  padding: 20px;
+  background: var(--surface);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tech-badge:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 113, 227, 0.2);
+}
+
+.tech-badge .icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.tech-badge .name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.cta-section h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.cta-section p {
+  font-size: 20px;
+  opacity: 0.95;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 16px 40px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: white;
+  color: var(--primary);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Footer */
+footer {
+  background: var(--text);
+  color: white;
+  padding: 48px 24px 24px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  margin-top: 24px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ps-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pros-cons {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-stats {
+    gap: 32px;
+  }
+  
+  .stat-value {
+    font-size: 36px;
+  }
+  
+  .section {
+    padding: 60px 24px;
+  }
+  
+  .ps-card, .architecture-diagram {
+    padding: 32px 24px;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.mockup-container {
+  max-width: 800px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.phone-mockup {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.phone-screen {
+  background: white;
+  border-radius: 30px;
+  padding: 40px 20px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.notification-demo {
+  background: #f5f5f7;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.notification-demo .title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.notification-demo .body {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f5f5f7;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.checklist-item input {
+  width: 20px;
+  height: 20px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-content">
+    <a href="index.html" class="nav-brand">← Mourya Dusi</a>
+    <a href="index.html#projects" class="nav-back">Back to Portfolio</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Mobile Application Concept</div>
+    <h1>Smart Exit Reminder</h1>
+    <p class="hero-subtitle">"Never Forget Again" – Your intelligent companion that reminds you of essentials the moment you leave home</p>
+    
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-value">100%</span>
+        <span class="stat-label">Automated</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">0</span>
+        <span class="stat-label">Manual Checks</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">24/7</span>
+        <span class="stat-label">Always Active</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem/Solution -->
+<section class="problem-solution section">
+  <div class="container">
+    <div class="ps-grid">
+      <div class="ps-card problem">
+        <div class="ps-icon">⚠️</div>
+        <h3>The Problem</h3>
+        <p>In our fast-paced lives, we constantly rush out and forget critical items. Traditional to-do lists fail because we forget to check them, yet we never forget our phone.</p>
+        <ul>
+          <li>Rushing causes forgetfulness of wallet, keys, ID</li>
+          <li>To-do lists require manual checking</li>
+          <li>Static reminders don't adapt to location</li>
+          <li>Missing items disrupts entire day</li>
+          <li>No proactive notification system exists</li>
+        </ul>
+      </div>
+      
+      <div class="ps-card solution">
+        <div class="ps-icon">✨</div>
+        <h3>The Solution</h3>
+        <p>Smart Exit Reminder automatically detects when you're leaving home and instantly notifies you about essential items – making forgetting impossible.</p>
+        <ul>
+          <li>Automatic exit detection via AI</li>
+          <li>Instant notification at the right moment</li>
+          <li>Location-aware intelligence</li>
+          <li>Battery-efficient background monitoring</li>
+          <li>Learns your daily patterns</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Features -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Core Features</div>
+      <h2 class="section-title">Intelligent & Effortless</h2>
+      <p class="section-description">Advanced technology working silently in the background to ensure you never forget what matters</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🚪</span>
+        <h3>Exit Detection</h3>
+        <p>Multi-sensor fusion (Wi-Fi, GPS, motion) accurately detects when you're actually leaving – not just moving around inside.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">🔔</span>
+        <h3>Smart Notifications</h3>
+        <p>Context-aware reminders appear at the perfect moment with actionable options to mark items as carried or snooze.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">🧠</span>
+        <h3>Pattern Learning</h3>
+        <p>AI learns your routines – office days, gym days, travel days – and adapts reminder lists automatically.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h3>Low Battery Impact</h3>
+        <p>Efficient algorithms and smart sensor management ensure minimal battery consumption while staying always active.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">🎯</span>
+        <h3>Zero Manual Input</h3>
+        <p>No checking required. Just walk out and get reminded. As automatic as breathing.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">🌤️</span>
+        <h3>Weather Integration</h3>
+        <p>Contextual reminders based on weather – "Take umbrella" on rainy days, "Sunglasses" when sunny.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technical Approaches -->
+<section class="approaches section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Implementation</div>
+      <h2 class="section-title">Technical Approaches</h2>
+      <p class="section-description">Multiple detection strategies evaluated for accuracy, reliability, and user experience</p>
+    </div>
+    
+    <div class="approach-grid">
+      <!-- Option A -->
+      <div class="approach-card">
+        <div class="approach-header">
+          <div class="approach-badge">🌍</div>
+          <div>
+            <h3>Option A: Geofencing</h3>
+            <p>GPS-Based Boundary Detection</p>
+          </div>
+        </div>
+        <div class="approach-body">
+          <p>Set a virtual fence (20-30m radius) around home. Trigger notification when user crosses the boundary.</p>
+          <div class="pros-cons">
+            <div class="pro-con-list pros">
+              <h4>✓ Pros</h4>
+              <ul>
+                <li>Easy to implement</li>
+                <li>No extra hardware</li>
+                <li>Works universally</li>
+                <li>Reliable outdoors</li>
+              </ul>
+            </div>
+            <div class="pro-con-list cons">
+              <h4>× Cons</h4>
+              <ul>
+                <li>GPS inaccurate indoors</li>
+                <li>Slight delay in trigger</li>
+                <li>Higher battery drain</li>
+                <li>May miss quick exits</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Option B -->
+      <div class="approach-card">
+        <div class="approach-header">
+          <div class="approach-badge">📡</div>
+          <div>
+            <h3>Option B: Wi-Fi Disconnect</h3>
+            <p>Home Network Detection</p>
+          </div>
+        </div>
+        <div class="approach-body">
+          <p>Monitor home Wi-Fi connection. Trigger reminder immediately when phone disconnects from network.</p>
+          <div class="pros-cons">
+            <div class="pro-con-list pros">
+              <h4>✓ Pros</h4>
+              <ul>
+                <li>Instant detection</li>
+                <li>Very battery efficient</li>
+                <li>Highly practical</li>
+                <li>Fast response time</li>
+              </ul>
+            </div>
+            <div class="pro-con-list cons">
+              <h4>× Cons</h4>
+              <ul>
+                <li>Requires Wi-Fi enabled</li>
+                <li>May trigger for brief steps</li>
+                <li>Network dependent</li>
+                <li>False positives possible</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Option C -->
+      <div class="approach-card">
+        <div class="approach-header">
+          <div class="approach-badge">🔵</div>
+          <div>
+            <h3>Option C: Bluetooth Beacon</h3>
+            <p>BLE Signal Monitoring</p>
+          </div>
+        </div>
+        <div class="approach-body">
+          <p>Place BLE beacon near door. Trigger when signal strength drops below threshold as user moves away.</p>
+          <div class="pros-cons">
+            <div class="pro-con-list pros">
+              <h4>✓ Pros</h4>
+              <ul>
+                <li>Very accurate</li>
+                <li>Door-specific trigger</li>
+                <li>Low power consumption</li>
+                <li>Minimal false alerts</li>
+              </ul>
+            </div>
+            <div class="pro-con-list cons">
+              <h4>× Cons</h4>
+              <ul>
+                <li>Requires extra hardware</li>
+                <li>Initial setup needed</li>
+                <li>Beacon battery maintenance</li>
+                <li>Cost consideration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Option D -->
+      <div class="approach-card">
+        <div class="approach-header">
+          <div class="approach-badge">🚪</div>
+          <div>
+            <h3>Option D: Smart Door Integration</h3>
+            <p>IoT Sensor Connection</p>
+          </div>
+        </div>
+        <div class="approach-body">
+          <p>Integrate with smart door sensors. Trigger when door opens AND phone moves away from home.</p>
+          <div class="pros-cons">
+            <div class="pro-con-list pros">
+              <h4>✓ Pros</h4>
+              <ul>
+                <li>Highest accuracy</li>
+                <li>Perfect timing</li>
+                <li>No false positives</li>
+                <li>Future-proof solution</li>
+              </ul>
+            </div>
+            <div class="pro-con-list cons">
+              <h4>× Cons</h4>
+              <ul>
+                <li>Requires smart home setup</li>
+                <li>Compatibility issues</li>
+                <li>Expensive infrastructure</li>
+                <li>Limited adoption</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Option E - RECOMMENDED -->
+      <div class="approach-card">
+        <div class="approach-header" style="background: linear-gradient(135deg, #34c759, #30a14e);">
+          <div class="approach-badge">🤖</div>
+          <div>
+            <h3>Option E: Sensor Fusion (AI)</h3>
+            <p>Multi-Signal Intelligence</p>
+          </div>
+        </div>
+        <div class="approach-body">
+          <p><strong>Combines multiple signals with intelligent logic:</strong></p>
+          <p style="margin-top: 16px; padding: 16px; background: #f5f5f7; border-radius: 8px; font-family: monospace; font-size: 13px;">
+            IF (Wi-Fi disconnected AND movement detected AND geofence exit AND time-pattern match) <br>
+            → Trigger reminder
+          </p>
+          <div class="pros-cons">
+            <div class="pro-con-list pros">
+              <h4>✓ Pros</h4>
+              <ul>
+                <li>Eliminates false positives</li>
+                <li>Highest accuracy</li>
+                <li>Adapts to user patterns</li>
+                <li>Works in all scenarios</li>
+                <li>Intelligent & reliable</li>
+              </ul>
+            </div>
+            <div class="pro-con-list cons">
+              <h4>× Cons</h4>
+              <ul>
+                <li>More complex implementation</li>
+                <li>Requires ML model</li>
+                <li>Initial calibration period</li>
+                <li>Slightly higher processing</li>
+              </ul>
+            </div>
+          </div>
+          <span class="recommended-badge">⭐ RECOMMENDED APPROACH</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">System Design</div>
+      <h2 class="section-title">Technical Architecture</h2>
+      <p class="section-description">Modular, scalable architecture designed for reliability and performance</p>
+    </div>
+    
+    <div class="architecture-diagram">
+      <div class="arch-layer">
+        <h4>Detection Layer</h4>
+        <div class="arch-boxes">
+          <div class="arch-box">Wi-Fi Monitor</div>
+          <div class="arch-box">Geofence Service</div>
+          <div class="arch-box">Motion Sensors</div>
+          <div class="arch-box">BLE Scanner</div>
+        </div>
+      </div>
+      
+      <div class="arch-layer">
+        <h4>Intelligence Layer</h4>
+        <div class="arch-boxes">
+          <div class="arch-box">Sensor Fusion AI</div>
+          <div class="arch-box">Pattern Learning ML</div>
+          <div class="arch-box">Context Analyzer</div>
+        </div>
+      </div>
+      
+      <div class="arch-layer">
+        <h4>Logic Layer</h4>
+        <div class="arch-boxes">
+          <div class="arch-box">Exit Detector</div>
+          <div class="arch-box">Rule Engine</div>
+          <div class="arch-box">Scheduler</div>
+        </div>
+      </div>
+      
+      <div class="arch-layer">
+        <h4>Presentation Layer</h4>
+        <div class="arch-boxes">
+          <div class="arch-box">Notification Manager</div>
+          <div class="arch-box">UI Controller</div>
+          <div class="arch-box">Settings</div>
+        </div>
+      </div>
+      
+      <div class="arch-layer">
+        <h4>Data Layer</h4>
+        <div class="arch-boxes">
+          <div class="arch-box">Local Database</div>
+          <div class="arch-box">User Preferences</div>
+          <div class="arch-box">Pattern History</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UI Mockup -->
+<section class="section" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">User Experience</div>
+      <h2 class="section-title">Interface Preview</h2>
+      <p class="section-description">Clean, intuitive design focused on quick interactions</p>
+    </div>
+    
+    <div class="mockup-container">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="notification-demo">
+            <div class="title">🚪 Leaving Home?</div>
+            <div class="body">Don't forget these items:</div>
+          </div>
+          
+          <div class="checklist-item">
+            <input type="checkbox" checked>
+            <span>💳 Wallet</span>
+          </div>
+          
+          <div class="checklist-item">
+            <input type="checkbox" checked>
+            <span>🔑 Car Keys</span>
+          </div>
+          
+          <div class="checklist-item">
+            <input type="checkbox">
+            <span>🆔 Office ID Card</span>
+          </div>
+          
+          <div class="checklist-item">
+            <input type="checkbox">
+            <span>🔌 Phone Charger</span>
+          </div>
+          
+          <div class="checklist-item">
+            <input type="checkbox">
+            <span>🥗 Lunch Box</span>
+          </div>
+          
+          <div style="display: flex; gap: 8px; margin-top: 20px;">
+            <button style="flex: 1; padding: 14px; background: #34c759; color: white; border: none; border-radius: 10px; font-weight: 600;">✓ All Set</button>
+            <button style="flex: 1; padding: 14px; background: #f5f5f7; border: none; border-radius: 10px; font-weight: 600;">Snooze 2min</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Stack -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Technology</div>
+      <h2 class="section-title">Tech Stack</h2>
+      <p class="section-description">Modern, proven technologies for cross-platform excellence</p>
+    </div>
+    
+    <div class="tech-grid">
+      <div class="tech-badge">
+        <span class="icon">⚛️</span>
+        <div class="name">React Native</div>
+      </div>
+      <div class="tech-badge">
+        <span class="icon">🎯</span>
+        <div class="name">Flutter</div>
+      </div>
+      <div class="tech-badge">
+        <span class="icon">📱</span>
+        <div class="name">iOS SDK</div>
+      </div>
+      <div class="tech-badge">
+        <span class="icon">🤖</span>
+        <div class="name">Android SDK</div>
+      </div>
+      <div class="tech-badge">
+        <span class="icon">🧠</span>
+        <div class="name">TensorFlow Lite</div>
+      </div>
+      <div class="tech-badge">
+        <span class="icon">🔵</span>
+        <div class="name">Bluetooth LE</div>
+      </div>
+      <div class="tech-badge">
+        <span class="icon">🌐</span>
+        <div class="name">Location APIs</div>
+      </div>
+      <div class="tech-badge">
+        <span class="icon">💾</span>
+        <div class="name">SQLite</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Build This?</h2>
+    <p>This product concept demonstrates my ability to design intelligent, user-centric solutions with real-world impact.</p>
+    <div class="cta-buttons">
+      <a href="index.html#contact" class="btn btn-primary">Discuss This Project</a>
+      <a href="index.html#projects" class="btn btn-secondary">View More Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="mailto:mouryadusi@outlook.com">Email</a>
+      <a href="https://linkedin.com/in/mouryadusi-dxb" target="_blank">LinkedIn</a>
+      <a href="https://github.com/mouryadusi" target="_blank">GitHub</a>
+      <a href="index.html">Portfolio</a>
+    </div>
+    <div class="copyright">
+      © 2025 Mourya Dusi. All rights reserved. | Designed & Developed with ❤️
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
